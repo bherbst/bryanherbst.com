@@ -1,0 +1,134 @@
+/*
+ * Hyde theme customization for bryanherbst.com
+ */
+html {
+  font-family: 'Robot', sans-serif;
+}
+
+.theme-base-bherbst .sidebar {
+  background-color: #1E4B66;
+}
+.theme-base-bherbst .content a,
+.theme-base-bherbst .related-posts li a:hover {
+  color: #156AA3;
+}
+
+.sidebar-about h1 {
+  font-family: 'Roboto';
+  font-weight:  500;
+}
+
+/*
+ * Buttons
+ */
+.material-btn {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.material-btn:hover {
+  box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+}
+
+.material-btn {
+  border: none;
+  border-radius: 2px;
+  display: inline-block;
+  height: 36px;
+  line-height: 36px;
+  outline: 0;
+  padding: 0 2rem;
+  text-transform: uppercase;
+  vertical-align: middle;
+  margin-bottom: 1em;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.material-btn {
+  text-decoration: none;
+  color: #fff;
+  background-color: #1E4B66;
+  text-align: center;
+  letter-spacing: .5px;
+  transition: .2s ease-out;
+  cursor: pointer;
+}
+
+.material-btn:hover {
+  background-color: #156AA3;
+}
+
+.theme-base-bherbst .content a.material-btn {
+  color: #fff;
+}
+
+a.material-btn:hover {
+  text-decoration: none;
+}
+
+/*
+ * Index
+ */
+.post-medium {
+  margin-bottom: 2em;
+}
+
+.profile-picture {
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto;
+    margin-bottom: 2em;
+    width: 150px;
+    height: 150px;
+}
+
+/*
+ * Apps formatting
+ */
+.app-item {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  border-radius: 4px;
+  padding: 16px;
+  margin: 16px 0;
+}
+
+.app-header {
+  width: 100%;
+  display: table;
+  margin-bottom: 8px;
+}
+
+.app-icon {
+  display: table-cell;
+  height: 64px;
+  width: 64px;
+}
+
+.app-icon img {
+  height: 64px;
+  margin: 0;
+}
+
+.app-title {
+  display: table-cell;
+  height: 100%;
+  vertical-align: middle;
+  padding-left: 16px;
+}
+
+/*
+ * Talks formatting
+ */
+.talk-list {
+  list-style-type: none;
+  -webkit-padding-start: 24px;
+}
+
+.talk-list li {
+  margin-top: 12px;
+}
+
+.talk-item {
+    border-left: 4px solid #1E4B66;
+    padding-left: 8px;
+    border-radius: 4px;
+}

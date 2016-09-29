@@ -1,0 +1,48 @@
+---
+layout: default
+title: Home
+---
+
+<div class="posts">
+  {% for post in paginator.posts %}
+  <div class="post post-{{ post.type }}">
+    <h1 class="post-title">
+      {% if post.type == "medium" %}
+        <a href="{{ post.medium_link }}">
+          {{ post.title }}
+        </a>
+      {% else %}
+        <a href="{{ post.url }}">
+          {{ post.title }}
+        </a>
+      {% endif %}
+    </h1>
+
+    <span class="post-date">{{ post.date | date_to_string }}</span>
+
+    {{ post.content }}
+
+    {% if post.type == "medium" %}
+      <a class="material-btn" href="{{ post.medium_link }}">Read the full article on Medium ›</a>
+    {% endif %}
+
+  </div>
+  {% endfor %}
+</div>
+
+<div class="pagination">
+  {% if paginator.next_page %}
+    <a class="pagination-item older" href="{{ site.baseurl }}page{{paginator.next_page}}">Older</a>
+  {% else %}
+    <span class="pagination-item older">Older</span>
+  {% endif %}
+  {% if paginator.previous_page %}
+    {% if paginator.page == 2 %}
+      <a class="pagination-item newer" href="{{ site.baseurl }}">Newer</a>
+    {% else %}
+      <a class="pagination-item newer" href="{{ site.baseurl }}page{{paginator.previous_page}}">Newer</a>
+    {% endif %}
+  {% else %}
+    <span class="pagination-item newer">Newer</span>
+  {% endif %}
+</div>

@@ -1,0 +1,31 @@
+# Dependencies
+markdown:         redcarpet
+highlighter:      pygments
+
+# Permalinks
+permalink:        pretty
+
+# Setup
+title:            Bryan Herbst
+tagline:          'Android Developer'
+description:      'Android developer @ Target, working on <a href="https://play.google.com/store/apps/details?id=com.target.socsav" target="_blank">Cartwheel</a>.'
+url:              http://bryanherbst.com
+baseurl:          /
+
+author:
+  name:           'Bryan Herbst'
+  url:            http://bryanherbst.com
+
+paginate:         5
+
+# Custom vars
+version:          1.0
+
+github:
+  repo:           https://github.com/bherbst/bryanherbst.com
+
+# Gems
+gems: [jekyll-paginate, jekyll-gist, redcarpet]
+
+# Ignores
+exclude: [ firebase.json, README.md, LICENSE.md ]

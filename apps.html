@@ -1,0 +1,29 @@
+---
+layout: page
+title: Apps
+---
+Not appetizers.
+
+<div class="apps-list">
+{% for app in site.data.apps %}
+    <div class="app-item">
+      <div class="app-header">
+        <div class="app-icon"><img src="{{ app.icon }}" description="{{ app.title }} icon"/></div>
+        <h3 class="app-title">{{ app.title }}</h3>
+      </div>
+
+      <p>{{ app.description }}</p>
+
+      {% case app.link_type %}
+        {% when 'google_play' %}
+           <a href="{{ app.link }}" target="_blank">
+             <img alt="Get it on Google Play" src="/public/assets/play_icon_small.png">
+           </a>
+        {% when 'download' %}
+           <a href="{{ app.link }}" target="_blank">Download</a>
+        {% when 'source' %}
+           <a href="{{ app.link }}" target="_blank">Source</a>
+      {% endcase %}
+    </div>
+{% endfor %}
+</div>

@@ -1,0 +1,54 @@
+---
+layout: page
+title: Talks
+---
+Here are some talks I've given and other material I have published that has found its way to the internet.
+
+<h2>Presentations</h2>
+<ul class="talk-list">
+{% for presentation in site.data.presentations %}
+  <li>
+    <div class="talk-item">
+      <a href="{{ presentation.link }}">{{ presentation.title }}</a>
+      <br />
+      <em>{{ presentation.conference }}, {{ presentation.date | date_to_long_string }}</em>
+      <br />
+      {% if presentation.slides %}
+        <a href="{{ presentation.slides }}" target="_blank">Slides</a>
+      {% endif %}
+      {% if presentation.slides and presentation.video %}
+        &mdash;
+      {% endif %}
+      {% if presentation.video %}
+        <a href="{{ presentation.video }}" target="_blank">Video</a>
+      {% endif %}
+    </div>
+</li>
+{% endfor %}
+</ul>
+
+<h2>Guest Blog Posts</h2>
+<ul class="talk-list">
+{% for post in site.data.guest_blog_posts %}
+  <li>
+    <div class="talk-item">
+      <a href="{{ post.link }}">{{ post.title }}</a>
+      <br />
+      <em>{{ post.blog }}, {{ post.date | date_to_long_string }}</em>
+    </div>
+  </li>
+{% endfor %}
+</ul>
+
+<h2>Other</h2>
+<ul class="talk-list">
+{% for talk in site.data.other_talks %}
+  <li>
+    <div class="talk-item">
+      <a href="{{ talk.link }}">{{ talk.title }}</a>
+      <br />
+      <em>{{ talk.type }}, {{ talk.date | date_to_long_string }}</em>
+    </div>
+  </li>
+{% endfor %}
+</ul>
