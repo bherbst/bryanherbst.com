@@ -19,6 +19,14 @@ html {
 }
 
 /*
+ * Sidebar additions
+ */
+.social img {
+    width: 48px;
+    display: inline;
+}
+
+/*
  * Buttons
  */
 .material-btn {

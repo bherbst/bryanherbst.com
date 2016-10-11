@@ -1,5 +1,11 @@
 {
   "hosting": {
-    "public": "_site"
+    "public": "_site",
+    "redirects": [ {
+        "source" : "/sonatype-verification",
+        "destination" : "https://github.com/bherbst",
+        "type" : 301
+      }
+    ]
   }
 }
