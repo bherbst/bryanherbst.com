@@ -1,7 +1,7 @@
 <div class="sidebar">
   <div class="container sidebar-sticky">
     <div class="sidebar-about">
-      <img class="profile-picture" src="/public/assets/profile.jpg">
+      <img class="profile-picture" src="/public/assets/profile.jpg" alt="profile picture">
       <h1>
         <a href="{{ site.baseurl }}">
           {{ site.title }}
@@ -30,8 +30,12 @@
     </nav>
 
     <div class="social">
-      <a href="https://github.com/bherbst"><img src="/public/assets/github.svg"></a>
-      <a href="https://twitter.com/bryancherbst"><img src="/public/assets/twitter.svg"></a>
+      <a href="https://github.com/bherbst">
+        <img src="/public/assets/github.svg" alt="Find me on GitHub">
+      </a>
+      <a href="https://twitter.com/bryancherbst">
+        <img src="/public/assets/twitter.svg" alt="Find me on Twitter">
+      </a>
     </div>
 
     <p>&copy; {{ site.time | date: '%Y' }}. All rights reserved.</p>
