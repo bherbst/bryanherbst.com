@@ -28,4 +28,4 @@ github:
 gems: [jekyll-paginate, jekyll-gist, redcarpet]
 
 # Ignores
-exclude: [ firebase.json, README.md, LICENSE.md ]
+exclude: [ firebase.json, README.md, LICENSE.md, vendor ]
