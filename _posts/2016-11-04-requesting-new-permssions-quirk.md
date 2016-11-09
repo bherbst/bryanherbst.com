@@ -11,7 +11,7 @@ Permissions are grouped into buckets like "location" or "storage" to simplify
 the explanation of what a permission does for users. Hopefully this is all old news to you.
 
 However there is an interesting situation that merits a little more explanation.
-Let's say your app currently requests `ACCESS_COURSE_LOCATION`. Your requirements
+Let's say your app currently requests `ACCESS_COARSE_LOCATION`. Your requirements
 have changed a little bit, and you now need `ACCESS_FINE_LOCATION`. What happens might
 not be quite what you expect.
 
@@ -22,20 +22,20 @@ The documentation provides this note:
 
 So we know we need to request the new fine location permission. But what does the user see?
 
-### If the user has not accepted `ACCESS_COURSE_LOCATION`
+### If the user has not accepted `ACCESS_COARSE_LOCATION`
 
 If a user hasn't accepted the coarse location permission (and hasn't said "don't ask again"),
 your app behaves as you would expect it to on a fresh install. You can request the permission
 as usual and go on about your day.
 
-### If the user has denied `ACCESS_COURSE_LOCATION`
+### If the user has denied `ACCESS_COARSE_LOCATION`
 
 If your user has denied the coarse location permission and selected the "never
 ask again" option, you will not be allowed to ask for either permission. This is
 also generally what I would expect- the user clearly doesn't want you using their location,
 so you don't get the opportunity to ask again.
 
-### If the user has accepted `ACCESS_COURSE_LOCATION`
+### If the user has accepted `ACCESS_COARSE_LOCATION`
 
 Here's where it gets a little more interesting.
 
