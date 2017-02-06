@@ -26,6 +26,10 @@ html {
   display: inline;
 }
 
+.social a {
+  text-decoration: none;
+}
+
 /*
  * Buttons
  */
