@@ -9,7 +9,7 @@ Here are some talks I've given and other material I have published that has foun
 {% for presentation in site.data.presentations %}
   <li>
     <div class="talk-item">
-      <a href="{{ presentation.link }}">{{ presentation.title }}</a>
+      <strong>{{ presentation.title }}</strong>
       <br />
       <em>{{ presentation.conference }}, {{ presentation.date | date_to_long_string }}</em>
       <br />
