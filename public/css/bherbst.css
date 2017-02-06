@@ -22,8 +22,8 @@ html {
  * Sidebar additions
  */
 .social img {
-    width: 48px;
-    display: inline;
+  height: 48px;
+  display: inline;
 }
 
 /*
