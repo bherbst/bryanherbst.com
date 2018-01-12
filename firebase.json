@@ -7,5 +7,18 @@
         "type" : 301
       }
     ]
-  }
+  },
+  "headers": [ {
+    "source" : "**/*.@(jpg|jpeg|gif|png)",
+    "headers" : [ {
+    "key" : "Cache-Control",
+    "value" : "max-age=7200"
+    } ]
+  }, {
+    "source" : "**/*.@(css)",
+    "headers" : [ {
+    "key" : "Cache-Control",
+    "value" : "max-age=7200"
+    } ]
+  } ]
 }
