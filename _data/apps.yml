@@ -1,12 +1,14 @@
 - title: Cartwheel by Target
   icon: /public/assets/cartwheel.png
   description: |
-    This is my day job!
+    I worked on this app for a few years!
+
+    At its peak, it had over 5 million active installs on Android, and over 30 million total users across all channels.
+
+    Target has since merged Cartwheel into the main "Target" application.
 
     Cartwheel is a mobile savings application for Target shoppers. You get offers
-    for tons of idfferent products without ever needing to cut out a coupon!
-  link: https://play.google.com/store/apps/details?id=com.target.socsav
-  link_type: google_play
+    for tons of different products without ever needing to cut out a coupon!
 
 
 - title: WvW Monitor for Guild Wars 2
