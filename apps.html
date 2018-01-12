@@ -12,7 +12,7 @@ Not appetizers.
         <h3 class="app-title">{{ app.title }}</h3>
       </div>
 
-      <p>{{ app.description }}</p>
+      <p>{{ app.description | markdownify}}</p>
 
       {% case app.link_type %}
         {% when 'google_play' %}
