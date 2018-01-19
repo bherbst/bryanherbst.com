@@ -1,24 +1,32 @@
 {
   "hosting": {
     "public": "_site",
-    "redirects": [ {
-        "source" : "/sonatype-verification",
-        "destination" : "https://github.com/bherbst",
-        "type" : 301
+    "redirects": [
+      {
+        "source": "/sonatype-verification",
+        "destination": "https://github.com/bherbst",
+        "type": 301
+      }
+    ],
+    "headers": [
+      {
+        "source": "**/*.@(jpg|jpeg|gif|png)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=7200"
+          }
+        ]
+      },
+      {
+        "source": "**/*.@(css)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=7200"
+          }
+        ]
       }
     ]
-  },
-  "headers": [ {
-    "source" : "**/*.@(jpg|jpeg|gif|png)",
-    "headers" : [ {
-    "key" : "Cache-Control",
-    "value" : "max-age=7200"
-    } ]
-  }, {
-    "source" : "**/*.@(css)",
-    "headers" : [ {
-    "key" : "Cache-Control",
-    "value" : "max-age=7200"
-    } ]
-  } ]
+  }
 }
