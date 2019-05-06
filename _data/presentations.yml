@@ -1,6 +1,10 @@
+- title: Get moving with MotionLayout
+  conference: DevFest MN
+  date: February 2nd, 2019
+
 - title: Android App Architecure & Navigation
   conference: GDG Twin Cities
-  date: September 4th, 2017
+  date: September 4th, 2018
   slides: https://speakerdeck.com/bherbst/android-app-architecture-and-navigation
 
 - title: Gradle Deep Dive
