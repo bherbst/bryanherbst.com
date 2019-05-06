@@ -26,31 +26,3 @@ Here are some talks I've given and other material I have published that has foun
 </li>
 {% endfor %}
 </ul>
-
-<h2>Guest Blog Posts</h2>
-<ul class="talk-list">
-{% for post in site.data.guest_blog_posts %}
-  <li>
-    <div class="talk-item">
-      <a href="{{ post.link }}">{{ post.title }}</a>
-      <br />
-      <em>{{ post.blog }}, {{ post.date | date_to_long_string }}</em>
-    </div>
-  </li>
-{% endfor %}
-</ul>
-
-{% if site.data.other_talks.size > 0 %}
-  <h2>Other</h2>
-  <ul class="talk-list">
-  {% for talk in site.data.other_talks %}
-    <li>
-      <div class="talk-item">
-        <a href="{{ talk.link }}">{{ talk.title }}</a>
-        <br />
-        <em>{{ talk.type }}, {{ talk.date | date_to_long_string }}</em>
-      </div>
-    </li>
-  {% endfor %}
-  </ul>
-{% endif %}
