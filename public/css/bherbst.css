@@ -94,40 +94,6 @@ a.material-btn:hover {
 }
 
 /*
- * Apps formatting
- */
-.app-item {
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-  border-radius: 4px;
-  padding: 16px;
-  margin: 16px 0;
-}
-
-.app-header {
-  width: 100%;
-  display: table;
-  margin-bottom: 8px;
-}
-
-.app-icon {
-  display: table-cell;
-  height: 64px;
-  width: 64px;
-}
-
-.app-icon img {
-  height: 64px;
-  margin: 0;
-}
-
-.app-title {
-  display: table-cell;
-  height: 100%;
-  vertical-align: middle;
-  padding-left: 16px;
-}
-
-/*
  * Talks formatting
  */
 .talk-list {
