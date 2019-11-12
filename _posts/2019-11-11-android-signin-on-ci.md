@@ -9,7 +9,7 @@ The Android Gradle Plugin already has a mechanism for you to provide an alternat
 
 When you run a Gradle task (e.g. `./gradlew assembleDebug`) you can provide an *injected* signing configuration like so:
 
-{% highlight shell %}
+{% highlight console %}
 ./gradlew assembleRelease\
   -Pandroid.injected.signing.store.file=[path_to_keystore] \
   -Pandroid.injected.signing.store.password=[keystore_password] \

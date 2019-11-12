@@ -25,7 +25,7 @@ github:
   repo:           https://github.com/bherbst/bryanherbst.com
 
 # Gems
-gems: [jekyll-paginate, jekyll-gist, redcarpet]
+gems: [jekyll-paginate, jekyll-gist, redcarpet, rouge]
 
 # Ignores
 exclude: [ firebase.json, README.md, LICENSE.md, vendor ]

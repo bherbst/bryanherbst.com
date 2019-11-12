@@ -102,6 +102,7 @@ DEPENDENCIES
   jekyll-gist
   jekyll-paginate
   redcarpet
+  rouge (~> 3.3)
 
 BUNDLED WITH
-   1.16.5
+   1.17.2

@@ -7,4 +7,6 @@ group :jekyll_plugins do
   gem "jekyll-paginate"
   gem "jekyll-gist"
   gem "redcarpet"
+  gem "rouge", "~> 3.3"
 end
+
