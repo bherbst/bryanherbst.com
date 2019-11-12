@@ -18,6 +18,11 @@ html {
   font-weight:  500;
 }
 
+.highlight {
+  margin-inline-start: 20px;
+  margin-inline-end: 20px;
+}
+
 /*
  * Sidebar additions
  */
