@@ -6,7 +6,7 @@ title: Signing an Android app on a CI server
 I often seen projects that use some sort of custom Gradle configuration to set up signing their APK/AAB for release. Most of the time this involves a file or custom command line arguments that provide extra Gradle project properties that the app's **build.gradle** references in a `signingConfigs` block. 
 
 The Android Gradle Plugin already has a mechanism for you to provide an alternative signing configuration at run time, so you don't need to set this up yourself!
-
+<!--more-->
 When you run a Gradle task (e.g. `./gradlew assembleDebug`) you can provide an *injected* signing configuration like so:
 
 {% highlight console %}

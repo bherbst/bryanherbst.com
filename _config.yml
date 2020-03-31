@@ -17,6 +17,7 @@ author:
   url:            http://bryanherbst.com
 
 paginate:         5
+excerpt_separator: <!--more-->
 
 # Custom vars
 version:          1.1
