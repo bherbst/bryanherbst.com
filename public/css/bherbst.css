@@ -23,6 +23,24 @@ html {
   margin-inline-end: 20px;
 }
 
+@media (min-width: 48em) {
+  .content {
+    max-width: 48rem;
+    margin-left: 20rem;
+    margin-right: 2rem;
+  }
+}
+
+figure.image{
+  display: inline-block;
+  text-align: center;
+}
+
+figure.image figcaption {
+  font-size: 14px;
+  font-style: italic;
+}
+
 /*
  * Sidebar additions
  */

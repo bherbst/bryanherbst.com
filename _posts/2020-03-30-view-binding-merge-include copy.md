@@ -12,14 +12,14 @@ When using an `<include>` tag with an ID in your layout View Binding will genera
 The most common issue that I've run into in migrating code to View Binding is `<include>` tags where both the `<include>` tag itself and the root of the included layout have IDs set like so:
 
 **home_fragment.xml**
-{% highlight console %}
+{% highlight xml %}
 <include
   layout="@layout/common_progress"
   android:id="@+id/home_progress" />
 {% endhighlight %}
 
 **common_progress.xml**
-{% highlight console %}
+{% highlight xml %}
 <ProgressBar
   android:id="@+id/progress_bar" />
 {% endhighlight %}
