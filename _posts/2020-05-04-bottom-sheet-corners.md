@@ -6,8 +6,8 @@ title: Customizing your bottom sheet's corners
 Shape is an important component of Material Design, and the Material Design Components library for Android supports shape theming on many of the Views that it offers. I recently found myself struggling to get my bottom sheets to show rounded corners though. Here's a guide to getting your bottom sheets shaped properly!
 
 {% include captioned-image.html url="/public/assets/posts/bottom_sheet/cut.png" description="Bottom sheet with cut corner" max-width="35%" %}{% include captioned-image.html url="/public/assets/posts/bottom_sheet/rounded.png" description="Bottom sheet with rounded corners" max-width="35%" %}
-
-Before we get started, I'd highly recommend checking out [the Material docs on shape](https://material.io/design/shape/about-shape.html#shaping-material).
+<!--more-->
+The Material Components library allows us to configure the corners of components such as bottom sheets fairly easily. It also offers more than just rounded corners- you can have cut corners as well! Before we get started, I'd highly recommend checking out [the Material docs on shape](https://material.io/design/shape/about-shape.html#shaping-material) to learn more about how Material recommends utilizing shape throughout your application.
 
 ## Shape appearances
 The first step in creating the right shape for your bottom sheet is to define a shape appearance. This is simply a
@@ -48,7 +48,7 @@ Bottom sheets fall into the "large" bucket, which also includes nav drawers, sid
 {% endhighlight %}
 
 #### App-wide bottom sheet dialog theme
-If you only want to shape your bottom sheet dialogs (both `BottomSheetDialog` and `BottomSheetDialogFragment`), you can insted set a `bottomSheetDialogTheme` and `bottomSheetStyle` on your app theme:
+If you only want to shape your bottom sheet dialogs (both `BottomSheetDialog` and `BottomSheetDialogFragment`), you can instead set a `bottomSheetDialogTheme` and `bottomSheetStyle` on your app theme:
 
 {% highlight xml %}
 <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
@@ -73,11 +73,14 @@ Let's explore these styles a little more:
  * `ThemeOverlay.Demo.BottomSheetDialog` then defines a `bottomSheetStyle` attribute, which specifies the style to apply to the bottom sheet. Behind the scenes this is actually applied to a `FrameLayout` which then gets attached to a `BottomSheetBehavior`.
   * Finally `Widget.Demo.BottomSheet` specifies the `shapeAppearanceOverlay` that defines the shape of our bottom sheets.
 
-The use of `shapeApperanceOverlay` here when the Material Design Components library also defines a `shapeAppearance` attribute can be confusing! Here's the difference: `shapeAppearance` should be a reference to a theme attribute (generally one of the sizes mentioned above, such as `shapeAppearanceLargeComponent`), but `shapeAppearanceOverlay` will directly reference a style that overrides the default provided by the `shapeAppearance`. In other words, use `shapeAppearance` if you want to set a widget's small/medium/large shape bucket, and `shapeAppearanceOverlay` if you want to override that bucket.
+The use of `shapeApperanceOverlay` here when the Material Design Components library also defines a `shapeAppearance` attribute can be confusing! Here's the difference: 
+ * `shapeAppearance` should be a reference to a theme attribute (generally one of the sizes mentioned above, such as `shapeAppearanceLargeComponent`)
+* `shapeAppearanceOverlay` should directly reference a style that overrides the default provided by the `shapeAppearance`.
+In other words, use `shapeAppearance` if you want to set a widget's small/medium/large shape bucket, and `shapeAppearanceOverlay` if you want to override that bucket.
 
 #### Shaping a single bottom sheet
 
-We can also shape individual bottom sheets! First we neeed to define a theme overlay just like we did before:
+We can also shape individual bottom sheets! First we need to define a theme overlay like we did before:
 
 {% highlight xml %}
 <style 
@@ -125,6 +128,6 @@ There are two more things to watch out for-
 
 First, be careful with bottom sheets that define their own background. The shape that you define for your bottom sheet is applied to the sheet's background and the contents are **not** clipped to that shape. That means that if you define your own background for your dialog, you'll lose your rounded corners!
 
-Second, be aware that bottom sheets automatically animate their corners from any rouned or cut shape to a sqaure (not-rounded/cut) shape when the sheet is fully expanded. You cannot easily disable this behavior. Here's an example with cut corners:
+Second, be aware that bottom sheets automatically animate their corners from any rounded or cut shape to a square shape when the sheet is fully expanded. You cannot easily disable this behavior. Here's an example with cut corners:
 
 <img src="/public/assets/posts/bottom_sheet/expand_gif.gif" width="200" alt="Corner expand animation" />
