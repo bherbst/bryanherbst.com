@@ -2,7 +2,7 @@
 layout: post
 title: Introduction to Semantics in Jetpack Compose
 ---
-Android developers are familiar with accessibility APIs like `contentDescription` in the View framework to provide accessibility frameworks like TalkBack additional infomration about our applications. How do we do this in Compose?
+Android developers are familiar with accessibility APIs like `contentDescription` in the View framework to provide accessibility frameworks like TalkBack additional information about our applications. How do we do this in Compose?
 
 The answer to that lies in the semantics APIs, which support both accessibility services and testing.
 
