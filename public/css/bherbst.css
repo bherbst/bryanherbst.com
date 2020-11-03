@@ -2,7 +2,8 @@
  * Hyde theme customization for bryanherbst.com
  */
 html {
-  font-family: 'Robot', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  line-height: 24px;
 }
 
 .theme-base-bherbst .sidebar {
@@ -30,6 +31,11 @@ html {
     margin-right: 2rem;
   }
 }
+@media (min-width: 58em) {
+  html {
+    font-size: 16px;
+  }
+}
 
 figure.image{
   display: inline-block;
@@ -39,6 +45,16 @@ figure.image{
 figure.image figcaption {
   font-size: 14px;
   font-style: italic;
+}
+
+code {
+  font-family: "Roboto Mono", Menlo, monospace;
+  color: #37474f;
+  font-weight: 500;
+}
+
+a code {
+  color: rgb(21, 106, 163);
 }
 
 /*
