@@ -32,22 +32,24 @@ As we explored in [part one of this series](https://bryanherbst.com/2020/10/12/c
 
 This isn't an exhaustive list, but rather a guide to the properties that you are most likely to use.
 
-### accessibilityLabel
-[`accessibilityLabel`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/package-summary#(androidx.compose.ui.semantics.SemanticsPropertyReceiver).accessibilityLabel:kotlin.String) is a direct analogue to `android:contentDescription`, and it populates `AccessibilityNodeInfo.contentDescription`.
+### contentDescription
+[`contentDescription`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/package-summary#contentdescription) is a direct analogue to `android:contentDescription`, and it populates `AccessibilityNodeInfo.contentDescription`.
 
-TalkBack reads this text when your Compose element receives accessibility focus. This is particularly useful for visual content such as images or icon buttons. For example you might want your app bar's back button to have an `accessibilityLabel` of "back button":
+TalkBack reads this text when your Compose element receives accessibility focus. This is particularly useful for visual content such as images or icon buttons. For example you might want your app bar's back button to have a `contentDescription` of "back button":
 
 {% highlight kotlin %}
 IconButton(
     onClick = { },
     icon = { Icon(Icons.Default.ArrowBack) },
     modifier = Modifier.semantics {
-      accessibilityLabel = "back button"
+      contentDescription = "back button"
     }
 )
 {% endhighlight %}
 
-If you do _not_ set an `accessibilityLabel`, accessibility services will typically read the text content of your node. In the back button example above, TalkBack would be completely silent without the label since there is no text associated with the button.
+If you do _not_ set a `contentDescription`, accessibility services will typically read the text content of your node. In the back button example above, TalkBack would be completely silent without the content description since there is no text associated with the button.
+
+*Jetpack Compose Alpha 9 note*: This attributed used to be `accessibilityLabel`, and was renamed in alpha 9.
 
 ### mergeAllDescendants
 A very common desire is to group multiple elements on screen together and have TalkBack read them as one element. For example if you have a Checkbox with a Text, you probably want to have both the state of the Checkbox and the text grouped together for accessibility purposes. `mergeAllDescendants` enables that grouping! In the `android.view` world it is common to do this using `android:importantForAccessibility` on a `ViewGroup`.
@@ -65,16 +67,16 @@ Row(
 
 This will create a Row that is focusable for accessibility, and when it receives focus TalkBack will read "Checked, Item one".
 
-### accessibilityValue
-[`accessibilityValue`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/package-summary#(androidx.compose.ui.semantics.SemanticsPropertyReceiver).accessibilityValue:kotlin.String) provides information on an elements state. This corresponds to `AccessibilityNodeInfo.stateDescription`. TalkBack will read the accessibility value _before_ the `accessibilityLabel`.
+### stateDescription
+[`stateDescription`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/package-summary#statedescription) provides information on an elements state. This corresponds to `AccessibilityNodeInfo.stateDescription`. TalkBack will read the state description _before_ the `contentDescription`.
 
-For example, the built-in `Toggleable` Composable [adds an `acecssibilityValue`](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-master-dev:compose/foundation/foundation/src/commonMain/kotlin/androidx/compose/foundation/selection/Toggleable.kt;l=102-108?q=accessibilityValue) indicating the checked or unchecked state:
+For example, the built-in `Toggleable` Composable [adds a `stateDescription`](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-master-dev:compose/foundation/foundation/src/commonMain/kotlin/androidx/compose/foundation/selection/Toggleable.kt;l=140-145;drc=1e6d8aa505d2efde5f61ff3c45325ab533840d32) indicating the checked or unchecked state:
 
 {% highlight kotlin %}
 @Composable
 fun Toggleable(state: ToggleableState) = composed {
   val semantics = Modifier.semantics(mergeAllDescendants = true) {
-      this.accessibilityValue = when (state) {
+      this.stateDescription = when (state) {
           On -> "Checked"
           Off -> "Unchecked"
           Indeterminate -> "Indeterminate"
@@ -89,12 +91,14 @@ Checkbox(
     checked = true,
     onCheckedChange = {},
     modifier = Modifier.semantics {
-        accessibilityLabel = "Checkbox"
+        contentDescription = "Checkbox"
     }
 )
 {% endhighlight %}
 
 *Note* - for custom toggleable and selectable components, consider using `Modifier.toggleable()`, `Modifier.triStateToggleable()`, or `Modifier.selectable()`, which provide additional functionality.
+
+*Jetpack Compose Alpha 9 note*: This attributed used to be `accessibilityValue`, and was renamed in alpha 9.
 
 ### customActions
 [`customActions`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/package-summary#(androidx.compose.ui.semantics.SemanticsPropertyReceiver).customActions:kotlin.collections.List) are useful for surfacing actions that are difficult to use or discover. A great example is long clicking- there is nothing about a UI component that would make a long click affordance inherently obvious.
@@ -132,7 +136,7 @@ Box(
             current = .5f, // current value within the range
             range = 0f..1f // total available range
         )
-        accessibilityLabel = "achievement progress"
+        contentDescription = "achievement progress"
     }
 )
 {% endhighlight %}

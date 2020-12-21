@@ -38,14 +38,14 @@ Using semantics, we can add a label to the button:
 IconButton(
   onClick = {},
   modifier = Modifier.semantics {
-    accessibilityLabel = "Add button"
+    contentDescription = "Add button"
   }
 ) {
   Icon(asset = Icons.Default.Add)
 }
 {% endhighlight %}
 
-The `accessibilityLabel` semantic property functions similarly to the old `contentDescription` attribute for Views- it provides a description of the content for accessibility purposes.
+The `contentDescription` semantic property functions similarly to the old `contentDescription` attribute for Views- it provides a description of the content for accessibility purposes.
 
 ## Semantic properties
 As we saw in the example above, the key into the world of semantics is [`Modifier.semantics()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/package-summary#(androidx.compose.ui.Modifier).semantics(kotlin.Boolean,%20kotlin.Function1)).
@@ -54,8 +54,8 @@ Typically you will use this with a trailing lambda to configure a [`SemanticsPro
 
 `SemanticsPropertyReceiver` has a number of properties already defined that you may want to use. Of particular note:
 
- * `accessibilityLabel` functions like the old `contentDescription`, and I anticipate it will be the most common semantic property. Use this for elements like icons that need a description.
- * `accessibilityValue` describes your element's state. For example, a radio button might set this to either "on" or "off".
+ * `contentDescription` functions like the old `contentDescription`, and I anticipate it will be the most common semantic property. Use this for elements like icons that need a description. Before Compose alpha 9, this was `accessibilityLabel`.
+ * `stateDescription` describes your element's state. For example, a radio button might set this to either "on" or "off". Before Compose alpha 9, this was `accessibilityValue`.
  * `testTag` is a convenient way to tag individual elements so you can later access them in your tests. Since composables have no concept of IDs like we had in the View framework, this is the best way to identify specific pieces of UI in your tests.
 
 `Modifier.semantics()` also accepts a `mergeAllDescendants` property, which allows you to group child elements into a single group in the semantics tree. This is useful for cases such as a radio button with text where two composables are two parts of a single element.
@@ -65,17 +65,17 @@ Part 2 of this series will go more in-depth on how the available semantic proper
 ### Custom semantic properties 
 You can also define your own semantics properties! Custom semantic properties are useful for providing additional information about your tests when a single `testTag` string just isn't enough.
 
-Here's an example of how the [Crane](https://github.com/android/compose-samples/tree/1630f6b35ac9e25fb3cd3a64208d7c9afaaaedc5/Crane) compose sample uses custom semantics to enable testing of a more complicated composable. Crane includes a calendar widget that allows users to choose a range of dates.
+Here's an example of how the [Crane](https://github.com/android/compose-samples/tree/de4d7b8f3ff9d09a600b34da84c0283567ba3cc5/Crane) compose sample uses custom semantics to enable testing of a more complicated composable. Crane includes a calendar widget that allows users to choose a range of dates.
 
 ![Crane calendar widget](/public/assets/posts/semantics_intro/crane_calendar.png){:height="250px"}
 
 When testing this widget is is useful to assert that specific days have specific states applied, for example that "January 21" is the first day that is selected, that "January 23" is the last day selected, and that "January 22" has a middle selection state.
 
-To accomplish this, Crane sets both an `accessibilityLabel` and a custom `dayStatusProperty` on each `Day()`:
+To accomplish this, Crane sets both a `contentDescription` and a custom `dayStatusProperty` on each `Day()`:
 {% highlight kotlin %}
 Day(
   modifier = Modifier.semantics {
-      accessibilityLabel = "${month.name} ${day.value}"
+      contentDescription = "${month.name} ${day.value}"
       dayStatusProperty = day.status
   }
   // ...
