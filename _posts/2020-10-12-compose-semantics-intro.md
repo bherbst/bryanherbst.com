@@ -103,7 +103,7 @@ fun testFirstDate() {
 
 ## What's next & resources
 
-[Part 2 of this series](http://bryanherbst.com/2020/10/27/compose-semantics-talkback/) explores how screen readers like TalkBack interact with semantics.
+[Part 2 of this series](https://bryanherbst.com/2020/11/03/compose-semantics-talkback/) explores how screen readers like TalkBack interact with semantics.
 
 The [Jetpack Compose testing docs](https://developer.android.com/jetpack/compose/testing) provide a good introduction to using semantics for testing.
 
