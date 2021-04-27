@@ -16,7 +16,7 @@ jobs:
         run: |
           gem install bundler
           bundle install --jobs 4 --retry 3
-      -name: build
+      - name: build
         run: jekyll build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
