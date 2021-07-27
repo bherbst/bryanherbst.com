@@ -51,21 +51,23 @@ If you do _not_ set a `contentDescription`, accessibility services will typicall
 
 *Jetpack Compose Alpha 9 note*: This attributed used to be `accessibilityLabel`, and was renamed in alpha 9.
 
-### mergeAllDescendants
-A very common desire is to group multiple elements on screen together and have TalkBack read them as one element. For example if you have a Checkbox with a Text, you probably want to have both the state of the Checkbox and the text grouped together for accessibility purposes. `mergeAllDescendants` enables that grouping! In the `android.view` world it is common to do this using `android:importantForAccessibility` on a `ViewGroup`.
+### mergeDescendants
+A very common desire is to group multiple elements on screen together and have TalkBack read them as one element. For example if you have a Checkbox with a Text, you probably want to have both the state of the Checkbox and the text grouped together for accessibility purposes. `mergeDescendants` enables that grouping! In the `android.view` world it is common to do this using `android:importantForAccessibility` on a `ViewGroup`.
 
 Here's a concrete example with a Checkbox:
 
 {% highlight kotlin %}
 Row(
-    Modifier.semantics(mergeAllDescendants = true) {}
+    Modifier.semantics(mergeDescendants = true) {}
 ) {
-    Checkbox(checked = true, onCheckedChange = {})
+    Checkbox(checked = true, onCheckedChange = null)
     Text("Item one")
 }
 {% endhighlight %}
 
 This will create a Row that is focusable for accessibility, and when it receives focus TalkBack will read "Checked, Item one".
+
+You might have noticed that I set `onCheckedChange = null` on the `Checkbox()`. By default `Checkbox()` and other clickable elements internally set `mergeDescendants`, and any Composable that merges it descendents will not be merged into a parent. In other words, Talkback will treat the checkbox as separate from the rest of the row even though you added `mergeDescendants` to the row! Setting `onCheckedChange = null` will prevent the checkbox from adding those semantics and will allow it to merge with the rest of the row. Thanks to [@erraticqueer](https://twitter.com/erraticqueer) for pointing this out! 
 
 ### stateDescription
 [`stateDescription`](https://developer.android.com/reference/kotlin/androidx/compose/ui/semantics/package-summary#statedescription) provides information on an elements state. This corresponds to `AccessibilityNodeInfo.stateDescription`. TalkBack will read the state description _before_ the `contentDescription`.
@@ -75,7 +77,7 @@ For example, the built-in `Toggleable` Composable [adds a `stateDescription`](ht
 {% highlight kotlin %}
 @Composable
 fun Toggleable(state: ToggleableState) = composed {
-  val semantics = Modifier.semantics(mergeAllDescendants = true) {
+  val semantics = Modifier.semantics(mergeDescendants = true) {
       this.stateDescription = when (state) {
           On -> "Checked"
           Off -> "Unchecked"
@@ -163,7 +165,7 @@ TalkBack will then ignore this element completely. This is similar to setting `a
 ### Modifier.clickable()
 [`Modifier.clickable()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/package-summary.html#(androidx.compose.ui.Modifier).clickable(kotlin.Boolean,%20kotlin.String,%20androidx.compose.foundation.InteractionState,%20androidx.compose.foundation.Indication,%20kotlin.String,%20kotlin.Function0,%20kotlin.Function0,%20kotlin.Function0)) makes a Composable clickable. It does more than just set up semantics- it also supports features such as ripple indications!
 
-One property that `Modifier.clickable()` sets is `mergeAllDescendants`. This is why all the children of a `Button` are grouped as a single element in TalkBack!
+One property that `Modifier.clickable()` sets is `mergeDescendants`. This is why all the children of a `Button` are grouped as a single element in TalkBack! Note if a clickable element has a clickable child (e.g. a `Checkbox()`), you may want to disable clicking on that child. By default the clickable child will still be clickable independently of the parent.
 
 `clickable()` also sets up appropriate click actions on the accessibility node. You can provide an `onClickLabel` to specify what action clicking this item will trigger. By default, TalkBack will read "double tap to activate", but if you specify an `onClickLabel` it will read that instead. For example, this would read "double tap to open message":
 

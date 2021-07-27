@@ -58,7 +58,7 @@ Typically you will use this with a trailing lambda to configure a [`SemanticsPro
  * `stateDescription` describes your element's state. For example, a radio button might set this to either "on" or "off". Before Compose alpha 9, this was `accessibilityValue`.
  * `testTag` is a convenient way to tag individual elements so you can later access them in your tests. Since composables have no concept of IDs like we had in the View framework, this is the best way to identify specific pieces of UI in your tests.
 
-`Modifier.semantics()` also accepts a `mergeAllDescendants` property, which allows you to group child elements into a single group in the semantics tree. This is useful for cases such as a radio button with text where two composables are two parts of a single element.
+`Modifier.semantics()` also accepts a `mergeDescendants` property, which allows you to group child elements into a single group in the semantics tree. This is useful for cases such as a radio button with text where two composables are two parts of a single element.
 
 Part 2 of this series will go more in-depth on how the available semantic properties affect accessibility.
 
