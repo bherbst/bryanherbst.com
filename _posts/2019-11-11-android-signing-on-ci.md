@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Signing an Android app on a CI server
+redirect_from:
+  - /2019/11/11/android-signin-on-ci/
 ---
 
 I often seen projects that use some sort of custom Gradle configuration to set up signing their APK/AAB for release. Most of the time this involves a file or custom command line arguments that provide extra Gradle project properties that the app's **build.gradle** references in a `signingConfigs` block. 

@@ -1,6 +1,8 @@
 ---
 layout: post
 title: View Binding&#58; Includes with Conflicting IDs
+redirect_from:
+  - /2020/03/30/view-binding-merge-include-copy/
 ---
 
 [View Binding](https://developer.android.com/topic/libraries/view-binding) is a fantastic new tool for Android Developers to interact with their layouts. As a refresher, View Binding helps replace `findViewById()` calls, KotlinX synthetic view accessors, and Butterknife with a solution that is null-safe, View type-safe, and directly tied to your layout files. View Binding was actually split off from the Databinding plugin, which has been stable and used in production apps for a couple years now.
