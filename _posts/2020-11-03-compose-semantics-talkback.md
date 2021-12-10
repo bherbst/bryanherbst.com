@@ -184,15 +184,15 @@ Row(
 Similarly, [`Modifier.toggleable()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/selection/package-summary.html#(androidx.compose.ui.Modifier).toggleable(kotlin.Boolean,%20kotlin.Boolean,%20androidx.compose.foundation.InteractionState,%20androidx.compose.foundation.Indication,%20kotlin.Function1)) and [`Modifier.triStateToggleable()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/selection/package-summary.html#(androidx.compose.ui.Modifier).triStateToggleable(androidx.compose.foundation.selection.ToggleableState,%20kotlin.Boolean,%20androidx.compose.foundation.InteractionState,%20androidx.compose.foundation.Indication,%20kotlin.Function0)) configure Composables to be toggleable with appropriate accessibility support.
 
 ## Compose quirk: class names
-Something that surprised is that in some situations Compose will populate an `AccessibilityNodeInfo` with a `className` from the `android.view` world.
+Something that surprised me is that in some situations Compose will populate an `AccessibilityNodeInfo` with a `className` from the `android.view` world.
 
-For example if you use a Composable that sets [`accessibilityRangeInfo`], Compose will [set a `className` on the node](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-master-dev:compose/ui/ui/src/androidMain/kotlin/androidx/compose/ui/platform/AndroidComposeViewAccessibilityDelegateCompat.kt;l=354-361) of either `android.widget.SeekBar` or `android.widget.ProgressBar`.
+In most cases this is driven by the `role` semantic property. For example, we can apply a `Role.Button` to any Composable that behaves like a button. If you are using `Modifier.clickable()`, `Modifier.seletable()`, or any other Modifier that provides interaction, make sure you are setting an appropriate role!
+
+There are a cases handled by other semantics as well - for example if you use a Composable that sets [`accessibilityRangeInfo`], Compose will [set a `className` on the node](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-master-dev:compose/ui/ui/src/androidMain/kotlin/androidx/compose/ui/platform/AndroidComposeViewAccessibilityDelegateCompat.kt;l=354-361) of either `android.widget.SeekBar` or `android.widget.ProgressBar`.
 
 This is an artifact of using the `android.view` UI framework for ten years. Perhaps unsurprisingly, the accessibility framework and services assume they are working with Views. The View class name is one piece of context these service use to surface information to users. 
 
 In a Compose world we don't have any reasonable "class name" we can use to populate that field on `AccessibilityNodeInfo`. Compose tries to fill in some of these gaps by pretending our Composables are Views.
-
-Compose doesn't do this in some places you might expect right now. As an example, `Button` Composables are _not_ given a class name of `android.widget.Button`. As a result TalkBack will _not_ say "Button" when reading out the button. The accessibility team has indicated that this _will_ happen before the first stable Compose release though!
 
 It will be interesting to how the accessibility framework and services evolve to support Jetpack Compose in a more natural way. My hunch is that some of the functionality that currently relies on classes will move towards more explicit APIs instead of implicit functionality based on the class.
 
