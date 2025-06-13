@@ -7,7 +7,7 @@ gem 'jekyll-redirect-from'
 group :jekyll_plugins do
   gem "jekyll-paginate"
   gem "jekyll-gist"
-  gem "rouge", "~> 3.21s
-  "
+  gem "rouge", "~> 3.21s"
+  gem "jekyll-gfm-admonitions" 
 end
 

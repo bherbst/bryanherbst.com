@@ -22,6 +22,7 @@ excerpt_separator: <!--more-->
 # Plugins
 plugins: 
   - jekyll-redirect-from
+  - jekyll-gfm-admonitions
 
 # Custom vars
 version:          1.1
