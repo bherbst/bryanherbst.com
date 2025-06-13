@@ -2,6 +2,11 @@
 layout: post
 title: Autofill with Jetpack Compose
 ---
+
+> [!CAUTION]
+> This post is out of date. Compose UI 1.8.0 (released in April 2025) brought signifcant improvements to autofill, replacing most of the APIs described here.
+> [You can read about those changes here](/2025/06/12/compose-autofill-update).
+
 Autofill is one of my favorite features to come to Android in recent years. I never want to manually type in my address and credit card information again. Autofill makes filling out forms an absolute breeze!
 
 With Jetpack Compose on the horizon I've been seeing a lot of questions around how to support autofill in Jetpack Compose. Yes, autofill is supported in Compose, and here's how you use it!
