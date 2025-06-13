@@ -21,6 +21,8 @@ There's a catch here - your `Fragment` is going to save its arguments already, a
 This generally isn't a problem if you are only including very small amounts of data in your Fragment arguments such as a string or two. 
 However if your Fragment is already putting too much data or large objects into the arguments this will multiply the impact of those arguments.
 
+<!--more-->
+
 ## Hilt - compounding the SavedStateHandle problem
 The issue with duplicating `Fragment` arguments can exponentially increase if you use Hilt to inject multiple view models in a single screen. 
 
