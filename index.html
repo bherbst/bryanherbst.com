@@ -26,6 +26,10 @@ title: Home
       <a class="material-btn" href="{{ post.medium_link }}">Read on Medium ›</a>
     {% endif %}
 
+    {% if post.content contains site.excerpt_separator %}
+      <a class="material-btn" href="{{ post.url }}">Continue reading ›</a>
+    {% endif %}
+
   </div>
   {% endfor %}
 </div>
