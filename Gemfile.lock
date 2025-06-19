@@ -96,11 +96,11 @@ GEM
     mercenary (0.4.0)
     net-http (0.4.1)
       uri
-    nokogiri (1.16.5-arm64-darwin)
+    nokogiri (1.18.3-arm64-darwin)
       racc (~> 1.4)
-    nokogiri (1.16.5-x86_64-darwin)
+    nokogiri (1.18.3-x86_64-darwin)
       racc (~> 1.4)
-    nokogiri (1.16.5-x86_64-linux)
+    nokogiri (1.18.3-x86_64-linux-gnu)
       racc (~> 1.4)
     octicons (19.15.2)
     octokit (4.25.1)
@@ -115,7 +115,7 @@ GEM
       ruby-rc4
       ttfunk
     public_suffix (5.0.4)
-    racc (1.7.3)
+    racc (1.8.1)
     rainbow (3.1.1)
     rake (13.2.1)
     rb-fsevent (0.11.2)
