@@ -64,7 +64,7 @@ One shortcoming I noted in my original blog post was that Compose autofill didn'
 
 ![Text field context menu with Autofill option](/public/assets/posts/compose_autofill_2/autofilled_highlight.png){:height="200px"}
 
-This works out-of-the-box if you use the `TextField` with the `state: TextFieldState` overload. It _should_ work for the `value` overloads as well but [there is a bug](https://issuetracker.google.com/issues/424384055) and the highlight draws behind the field. 
+This works out-of-the-box if you use the `TextField` with the `state: TextFieldState` overload. It _should_ work for the `value` overloads as well but [there is a bug](https://issuetracker.google.com/issues/424384055) and the highlight draws behind the field. _Update: this bug has been fixed in AOSP and should be available in a new Material release soon!_
 
 ## Fixed: Text context menu support
 The old implementation didn't support showing an "autofill" option in the context menu. It does now! This allows users to manually trigger autofill when needed.
